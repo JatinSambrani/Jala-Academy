@@ -1,0 +1,69 @@
+#1. Define a static variable and access that through a class
+
+class MyClass:
+    static_variable = 10
+
+# Accessing the static variable through the class
+print(MyClass.static_variable)
+
+#In this example:
+
+#We define a class MyClass with a static variable static_variable set to 10.
+#To access the static variable, we use the class name (MyClass) followed by the dot operator (.) and the variable name (static_variable).
+#This way, you can define and access static variables in Python classes. Static variables are shared among all instances of the class and can be accessed through the class itself.
+
+
+#2. Define a static variable and access that through a instance
+class MyClass:
+    static_variable = 10
+
+# Accessing the static variable through an instance of the class
+instance = MyClass()
+print(instance.static_variable)  # Output: 10
+
+#In this example:
+
+#We define a class MyClass with a static variable static_variable set to 10.
+#We create an instance of the class called instance.
+#We access the static variable static_variable through the instance instance using dot notation (instance.static_variable).
+#While accessing static variables through instances is possible in Python, it's generally not recommended because it can be confusing. Static variables are intended to be accessed through the class itself, as they are shared among all instances of the class.
+
+#3. Define a static variable and change within the instance
+
+class MyClass:
+    static_variable = 10
+
+# Accessing and modifying the static variable through an instance of the class
+instance = MyClass()
+print("Before modification - Static variable value:", instance.static_variable)  # Output: 10
+
+# Modifying the static variable through the instance
+instance.static_variable = 20
+
+# Accessing the static variable through the class
+print("After modification - Static variable value:", MyClass.static_variable)  # Output: 10
+
+#4. Define a static variable and change within the class
+class MyClass:
+    static_variable = 10
+
+    @classmethod
+    def change_static_variable(cls, new_value):
+        cls.static_variable = new_value
+
+# Accessing the static variable before modification
+print("Before modification - Static variable value:", MyClass.static_variable)  # Output: 10
+
+# Changing the static variable within the class
+MyClass.change_static_variable(20)
+
+# Accessing the static variable after modification
+print("After modification - Static variable value:", MyClass.static_variable)  # Output: 20
+
+
+
+
+
+
+
+
