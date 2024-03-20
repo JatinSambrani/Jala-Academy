@@ -1,0 +1,174 @@
+#1. Different ways creating a string
+
+#Using Single or Double Quotes:
+str1 = 'Hello, world!'
+str2 = "Python programming"
+
+#Using Triple Quotes:
+str3 = '''This is a multi-line
+string created using triple quotes.'''
+
+#Using the str() Constructor:
+num = 123
+str4 = str(num)
+
+#Using String Concatenation:
+str5 = "Hello" + " " + "world"
+
+#Using String Formatting:
+name = "Alice"
+age = 30
+str6 = "My name is {} and I am {} years old.".format(name, age)
+
+#Using F-strings (Formatted String Literals):
+name = "Bob"
+age = 25
+str7 = f"My name is {name} and I am {age} years old."
+
+#Using String Slicing and Joining:
+parts = ["Hello", "world"]
+str8 = " ".join(parts)
+
+#2. Concatenating two strings using + operator
+str1 = "Hello"
+str2 = "world"
+result = str1 + " " + str2
+print(result)  # Output: Hello world
+
+#3. Finding the length of the string
+my_string = "Hello, world!"
+length = len(my_string)
+print("Length of the string:", length)
+
+#4. Extract a string using Substring
+my_string = "Hello, world!"
+
+# Extract substring from index 7 to 11 (exclusive)
+substring = my_string[7:12]
+
+print("Substring:", substring)
+
+#5. Searching in strings using index()
+my_string = "Hello, world!"
+
+# Find the index of the substring "world"
+index = my_string.index("world")
+
+print("Index of 'world':", index)
+
+#6. Matching a String Against a Regular Expression With matches()
+import re
+
+# Regular expression pattern
+pattern = r'^[a-zA-Z0-9_]*$'
+
+# String to match
+my_string = "hello123"
+
+# Check if the string matches the pattern
+if re.search(pattern, my_string):
+    print("String matches the pattern.")
+else:
+    print("String does not match the pattern.")
+
+#7. Comparing strings
+str1 = "apple"
+str2 = "banana"
+
+# Compare if str1 is equal to str2
+if str1 == str2:
+    print("str1 is equal to str2")
+else:
+    print("str1 is not equal to str2")
+
+# Compare if str1 is not equal to str2
+if str1 != str2:
+    print("str1 is not equal to str2")
+else:
+    print("str1 is equal to str2")
+
+# Compare if str1 is less than str2
+if str1 < str2:
+    print("str1 is less than str2")
+else:
+    print("str1 is not less than str2")
+
+# Compare if str1 is greater than str2
+if str1 > str2:
+    print("str1 is greater than str2")
+else:
+    print("str1 is not greater than str2")
+
+#8. startsWith(), endsWith() and compareTo()
+
+#startsWith():
+my_string = "hello world"
+prefix = "hello"
+if my_string.startswith(prefix):
+    print("String starts with 'hello'")
+
+#endsWith():
+my_string = "hello world"
+suffix = "world"
+if my_string.endswith(suffix):
+    print("String ends with 'world'")
+
+#compareTo():
+import locale
+
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+
+str1 = "apple"
+str2 = "banana"
+
+result = locale.strcoll(str1, str2)
+
+if result < 0:
+    print("str1 comes before str2")
+elif result > 0:
+    print("str1 comes after str2")
+else:
+    print("str1 is equal to str2")
+
+#9. Trimming strings with strip()
+my_string = "   hello, world!   "
+trimmed_string = my_string.strip()
+print(trimmed_string)  # Output: "hello, world!"
+
+#10my_string = "hello, world!"
+new_string = my_string.replace("o", "0")
+print(new_string)
+
+#11. Splitting strings with split()
+my_string = "apple,banana,orange"
+split_string = my_string.split(",")
+print(split_string)
+
+#12. Converting integer objects to Strings
+
+#Using the str() function:
+num = 123
+str_num = str(num)
+print(str_num)  # Output: "123"
+
+#Using formatted string literals (f-strings):
+
+num = 123
+str_num = f"{num}"
+print(str_num)  # Output: "123"
+
+#13. Converting to uppercase and lowercase
+
+#Converting to Uppercase:
+my_string = "hello, world!"
+uppercase_string = my_string.upper()
+print(uppercase_string)
+
+#Converting to Lowercase:
+my_string = "HELLO, WORLD!"
+lowercase_string = my_string.lower()
+print(lowercase_string)  
+
+
+
+
