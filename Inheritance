@@ -1,0 +1,77 @@
+#A, B and C are classes
+#A is a super class. B is a sub class of A. C is a sub class of B.
+#Create three methods in each class, 2 methods are specific to each class and third
+#method (override method) should be in all three Classes A, B and C
+#Create a class with main method. Create an object for each class A, B and C in main
+#method and call every method of each class using its own object/instance.
+#Call an overridden method with super class reference to B and C class’s objects
+#Runtime Polymorphism with Data Members/Instance variables, Repeat the above
+#process only for data members
+
+class A:
+    def method1(self):
+        print("Method 1 of class A")
+
+    def method2(self):
+        print("Method 2 of class A")
+
+    def overridden_method(self):
+        print("Overridden method in class A")
+
+
+class B(A):
+    def method3(self):
+        print("Method 3 of class B")
+
+    def method4(self):
+        print("Method 4 of class B")
+
+    def overridden_method(self):
+        print("Overridden method in class B")
+
+
+class C(B):
+    def method5(self):
+        print("Method 5 of class C")
+
+    def method6(self):
+        print("Method 6 of class C")
+
+    def overridden_method(self):
+        print("Overridden method in class C")
+
+
+class Main:
+    def main(self):
+        # Creating objects for each class
+        obj_a = A()
+        obj_b = B()
+        obj_c = C()
+
+        # Calling methods of class A using its own object
+        obj_a.method1()
+        obj_a.method2()
+        obj_a.overridden_method()
+
+        # Calling methods of class B using its own object
+        obj_b.method3()
+        obj_b.method4()
+        obj_b.overridden_method()
+
+        # Calling methods of class C using its own object
+        obj_c.method5()
+        obj_c.method6()
+        obj_c.overridden_method()
+
+        # Calling overridden method with superclass reference
+        super_ref_b = B()
+        super_ref_c = C()
+
+        super_ref_b.overridden_method()  # Calls overridden method in class B
+        super_ref_c.overridden_method()  # Calls overridden method in class C
+
+
+# Creating an instance of Main class and invoking the main method
+if __name__ == "__main__":
+    main_instance = Main()
+    main_instance.main()
