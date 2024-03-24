@@ -1,0 +1,140 @@
+#1. Write a class with a default constructor, one argument constructor and two argument
+#constructors. Instantiate the class to call all the constructors of that class from a main
+#class
+
+class MyClass:
+    def __init__(self):
+        print("Default constructor called")
+
+    def __init__(self, arg1):
+        self.arg1 = arg1
+        print("One-argument constructor called with arg1:", self.arg1)
+
+    def __init__(self, arg1, arg2):
+        self.arg1 = arg1
+        self.arg2 = arg2
+        print("Two-argument constructor called with arg1:", self.arg1, "and arg2:", self.arg2)
+
+
+class MainClass:
+    def __init__(self):
+        print("Instantiating MyClass to call constructors...")
+        # Instantiate MyClass with default constructor
+        obj1 = MyClass()
+        # Instantiate MyClass with one-argument constructor
+        obj2 = MyClass("Hello")
+        # Instantiate MyClass with two-argument constructor
+        obj3 = MyClass("World", 2022)
+
+
+if __name__ == "__main__":
+    # Instantiate MainClass to trigger MyClass constructor calls
+    main_obj = MainClass()
+
+#2. Call the constructors(both default and argument constructors) of super class from a child
+#class
+
+class SuperClass:
+    def __init__(self):
+        print("SuperClass default constructor called")
+
+    def __init__(self, arg):
+        self.arg = arg
+        print("SuperClass argument constructor called with arg:", self.arg)
+
+
+class ChildClass(SuperClass):
+    def __init__(self):
+        # Call the default constructor of the superclass
+        super().__init__()
+        print("ChildClass default constructor called")
+
+    def __init__(self, arg):
+        # Call the argument constructor of the superclass
+        super().__init__(arg)
+        print("ChildClass argument constructor called with arg:", arg)
+
+
+def main():
+    # Instantiate ChildClass with default constructor
+    obj1 = ChildClass()
+    print()
+
+    # Instantiate ChildClass with argument constructor
+    obj2 = ChildClass("Hello")
+
+
+if __name__ == "__main__":
+    main()
+
+#3. Apply private, public, protected and default access modifiers to the constructor
+
+class MyClass:
+    def __init__(self):
+        print("Public constructor called")
+
+    def _protected_constructor(self):
+        print("Protected constructor called")
+
+    def __private_constructor(self):
+        print("Private constructor called")
+
+
+class ChildClass(MyClass):
+    def __init__(self):
+        # Call the public constructor of the superclass
+        super().__init__()
+        print("ChildClass constructor called")
+
+    def call_protected_constructor(self):
+        # Call the protected constructor of the superclass
+        self._protected_constructor()
+
+    def call_private_constructor(self):
+        # Call the private constructor of the superclass
+        # Note: Name mangling is used for private methods
+        self.__private_constructor()
+
+
+def main():
+    # Instantiate ChildClass
+    obj = ChildClass()
+
+    # Access public constructor
+    print("\nAccessing public constructor:")
+    obj.__init__()
+
+    # Access protected constructor
+    print("\nAccessing protected constructor:")
+    obj.call_protected_constructor()
+
+    # Access private constructor (will raise AttributeError)
+    print("\nAccessing private constructor:")
+    obj.call_private_constructor()
+
+
+if __name__ == "__main__":
+    main()
+
+#4. Write a program which illustrates the concept of attributes of a constructor.
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name  # Initializing 'name' attribute
+        self.age = age    # Initializing 'age' attribute
+
+    def display(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+
+def main():
+    # Create an object of Person class with attributes
+    person1 = Person("Alice", 30)
+
+    # Access and display attributes using display method
+    person1.display()
+
+
+if __name__ == "__main__":
+    main()
