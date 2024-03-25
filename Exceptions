@@ -1,0 +1,158 @@
+#1. Write a program to generate Arithmetic Exception without exception handling
+#In Python, an arithmetic exception occurs when you perform an arithmetic operation that is not defined or is not allowed, such as division by zero. Here's a simple program that generates an arithmetic exception without using exception handling:
+
+# Attempting to perform a division by zero operation
+result = 10 / 0
+
+#2. Handle the Arithmetic exception using try-catch block
+
+try:
+    # Attempting to perform a division by zero operation
+    result = 10 / 0
+except ArithmeticError as e:
+    # Handling the arithmetic exception
+    print("Arithmetic exception occurred:", e)
+
+#3. Write a method which throws exception, Call that method in main class without try block
+
+# Define a method that throws an exception
+def throw_exception():
+    # Raise a ValueError exception
+    raise ValueError("This is a ValueError exception")
+
+# Call the method in the main class without a try block
+def main():
+    # Call the method that throws an exception
+    throw_exception()
+
+# Call the main function
+if __name__ == "__main__":
+    main()
+
+#4. Write a program with multiple catch blocks
+
+def divide_numbers(x, y):
+    try:
+        result = x / y
+        print("Result of division:", result)
+    except ZeroDivisionError:
+        print("Cannot divide by zero")
+    except ValueError:
+        print("Invalid input value")
+    except Exception as e:
+        print("An error occurred:", e)
+
+def main():
+    # Test cases
+    divide_numbers(10, 2)  # Normal division
+    divide_numbers(10, 0)  # Division by zero
+    divide_numbers("10", 2)  # Invalid input value
+
+if __name__ == "__main__":
+    main()
+
+#5. Write a program to throw exception with your own message
+
+def validate_age(age):
+    if age < 0:
+        # Raise a ValueError exception with a custom message
+        raise ValueError("Age cannot be negative")
+
+def main():
+    try:
+        # Call the function with an invalid age
+        validate_age(-5)
+    except ValueError as e:
+        # Handle the ValueError exception and print the custom message
+        print("An error occurred:", e)
+
+if __name__ == "__main__":
+    main()
+
+#6. Write a program to create your own exception
+
+# Define a custom exception class
+class CustomException(Exception):
+    def __init__(self, message="Custom Exception occurred"):
+        self.message = message
+        super().__init__(self.message)
+
+# Function that raises the custom exception
+def raise_custom_exception():
+    raise CustomException("This is a custom exception")
+
+def main():
+    try:
+        # Call the function that raises the custom exception
+        raise_custom_exception()
+    except CustomException as e:
+        # Handle the custom exception and print the custom message
+        print("Custom Exception occurred:", e)
+
+if __name__ == "__main__":
+    main()
+
+#7. Write a program with finally block
+
+def divide_numbers(x, y):
+    try:
+        result = x / y
+        print("Result of division:", result)
+    except ZeroDivisionError:
+        print("Cannot divide by zero")
+    finally:
+        print("Finally block is executed")
+
+def main():
+    # Test cases
+    divide_numbers(10, 2)  # Normal division
+    divide_numbers(10, 0)  # Division by zero
+
+if __name__ == "__main__":
+    main()
+
+#8. Write a program to generate Arithmetic Exception
+
+# Attempting to perform a division by zero operation
+result = 10 / 0
+
+#9. Write a program to generate FileNotFoundException
+
+try:
+    # Attempting to open a file that does not exist
+    with open("nonexistent_file.txt", "r") as file:
+        contents = file.read()
+except FileNotFoundError:
+    print("File not found")
+
+#10. Write a program to generate ClassNotFoundException
+
+try:
+    # Attempting to import a module that doesn't exist
+    import non_existent_module
+except ImportError:
+    print("Class not found")
+
+#11. Write a program to generate IOException
+
+try:
+    # Attempting to open a file in write mode
+    with open("example.txt", "w") as file:
+        # Writing some content to the file
+        file.write("Hello, World!")
+except OSError as e:
+    print("Input/output error occurred:", e)
+
+#12. Write a program to generate NoSuchFieldException
+
+class MyClass:
+    def __init__(self):
+        self.field1 = "Value 1"
+
+try:
+    # Attempting to access a non-existent field
+    obj = MyClass()
+    print(obj.field2)
+except AttributeError:
+    print("No such field exists")
+
